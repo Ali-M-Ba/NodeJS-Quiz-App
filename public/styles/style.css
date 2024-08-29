@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --sp-xs: 0.25rem;   /* Extra Small spacing (4px) */
+  --sp-sm: 0.5rem;    /* Small spacing (8px) */
+  --sp-md: 1rem;      /* Medium spacing (16px) */
+  --sp-lg: 1.5rem;    /* Large spacing (24px) */
+  --sp-xl: 2rem;      /* Extra Large spacing (32px) */
+
+  --fs-xs: 0.75rem;   /* Extra Small font size (12px) */
+  --fs-sm: 0.875rem;  /* Small font size (14px) */
+  --fs-md: 1rem;      /* Medium font size (16px) */
+  --fs-lg: 1.25rem;   /* Large font size (20px) */
+  --fs-xl: 1.5rem;    /* Extra Large font size (24px) */
+
+  --color-primary: #ffffff;
+  --color-secondary: #000000;
+  --color-tertiary: #ffffff;
+  --color-quaternary: #000000;
+
+  --color-warning: #ffc107;
+
+  --color-correct: #00b72b;
+  --color-incorrect: #b40012;
+
+  --br-sm: 0.25rem;  /* Small border radius (4px) */
+  --br-md: 0.5rem;   /* Medium border radius (8px) */
+  --br-lg: 0.75rem;  /* Large border radius (12px) */
+}
+
+body {
+  height: 100vh;
+  background-color: var(--color-secondary);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--fs-md);
+  font-weight: 500;
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+header {
+  margin-block: var(--sp-xl); /* Replaces margin-top and margin-bottom */
+  text-align: center;
+}
+
+section {
+  margin-bottom: var(--sp-xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  width: min(90%, 340px);
+  margin: auto;
+  margin-bottom: var(--sp-xl);
+  padding: var(--sp-md);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--br-md);
+}
+
+h1 {
+  font-size: var(--fs-xl);
+}
+
+h1 span {
+  display: block;
+}
+
+h2 {
+  margin: 0px;
+  margin-bottom: var(--sp-md);
+  font-size: var(--fs-lg);
+}
+
+p {
+  margin: 0px;
+  margin-bottom: var(--sp-md);
+  text-align: center;
+}
+
+legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back {
+  text-decoration: none;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+form {
+  width: 340px;
+  margin: auto;
+}
+
+.trivia-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.category-label {
+  margin-bottom: var(--sp-sm);
+}
+
+.category_select {
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--br-sm);
+  padding: var(--sp-xs) var(--sp-sm);
+  margin-bottom: var(--sp-md);
+  width: 100%;
+}
+
+fieldset {
+  padding: var(--sp-md);
+  border-radius: var(--br-md);
+  border: none;
+  border: 1px solid var(--color-primary);
+}
+
+.answer_label {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  max-width: 340px;
+  padding: 0px var(--sp-xs);
+  margin-bottom: var(--sp-xs);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--br-md);
+  white-space: normal;    /* Allows the text to wrap */
+}
+
+
+.answer_label[data-answer="user"] {
+  border: 2px solid var(--color-incorrect);
+  background-color: rgba(255, 0, 25, 0.294);
+}
+
+.answer_label[data-answer="correct"] {
+  border: 2px solid var(--color-correct);
+  background-color: #00ff3c41;
+}
+
+.result_answer_label {
+  cursor: default;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0; /* Prevents the radio button from shrinking */
+  margin: 0px 8px;
+  cursor: pointer;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  position: relative;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-content: center;
+  margin-top: var(--sp-sm);
+}
+
+.btn {
+  margin-block: var(--sp-xs);
+  padding: var(--sp-xs) var(--sp-sm);
+  font-size: var(--fs-sm);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--br-sm);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-tertiary);
+  color: var(--color-quaternary);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-tertiary);
+  color: var(--color-quaternary);
+  border: none;
+}
+
+.next-btn {
+  grid-column: 3 / 4;
+}
+
+.submit-btn {
+  grid-column: 3 / 4;
+}
+
+.trivia-submit {
+  align-self: center;
+  margin-bottom: var(--sp-md);
+}
+
+.try-again {
+  grid-column: 2 / 3;
+  justify-self: center;
+}
+
+.back-button {
+  grid-column: 1 / 2;
+}
+
+.tag-error {
+  color: var(--color-warning);
+}
+
+.otdb-logo {
+  height: 25px;
+  vertical-align: middle; /* Aligns the image with the text */
+}

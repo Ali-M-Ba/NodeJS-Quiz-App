@@ -1,0 +1,47 @@
+<%- include('./partials/header.ejs') %>
+
+	<header>
+		<h1>
+			<span>Test Your Knowledge</span>
+			<span>About <%= data[0].category %></span>
+		</h1>
+	</header>
+	<main>
+		<section>
+			<form id="quiz-form" class="quiz-form" action="/score" method="post">
+				<% data.forEach((question, index) => { %>
+					<fieldset>
+						<legend>
+							<a class="back" href="/">&larr; Back</a>
+							<span>Question <%= index + 1 %> / <%= data.length %></span>
+						</legend>
+						<h2 id="question_<%= index %>"><%= question.question %></h2>
+						<% question.shuffledAnswers.forEach((answer, idx) => { %>
+							<label class="answer_label" for="answer_<%= index %>_<%= idx %>">
+									<input
+									type="radio"
+									id="answer_<%= index %>_<%= idx %>"
+									name="answer_<%= index %>"
+									value="<%= answer %>"
+									>
+									<%= answer %>
+							</label>
+						<% }) %>
+						<div id="warning_<%= index %>" class="warning"></div>
+						<div class="controls">
+							<% if (index > 0) { %>
+								<button type="button" class="btn btn-secondary back-btn">Back</button>
+							<% } %>
+							<% if (index == data.length - 1) { %>
+								<input type="submit" class="btn btn-primary submit-btn" id="submit-btn" value="Submit">
+							<% } else { %>
+								<button type="button" class="btn btn-primary next-btn">Next</button>
+							<% } %>
+						</div>
+					</fieldset>
+				<% }) %>
+			</form>
+		</section>
+	</main>
+
+	<%- include('./partials/footer.ejs') %>

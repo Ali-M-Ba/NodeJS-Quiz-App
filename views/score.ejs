@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+
+	<header>
+		<h1>
+			<span>🔍 You've Completed the Quiz!</span>
+			<span>View Your Score Below! 📈</span>
+		</h1>
+		</header>
+	<main>
+		<section class="section pyro">
+			<div class="before"></div>
+			<div class="after"></div>
+			<h2>Score <%= data.correct  %> / <%= data.correct + data.incorrect %></h2>
+			<p style="text-align: center;"><%= msg %></p>
+			<a href="/result" class="btn btn-primary">Review Your Answers</a>
+			<a href="/" class="btn btn-secondary">Try Again</a>
+		</section>
+	</main>
+
+<%- include('./partials/footer.ejs') %>

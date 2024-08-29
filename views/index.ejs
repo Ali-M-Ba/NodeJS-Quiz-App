@@ -1,0 +1,42 @@
+<%- include('./partials/header.ejs') %>
+
+	<header>
+		<h1>How Much Do You Really Know?</h1>
+	</header>
+	<main>
+		<section class="section">
+			<h2>Let's Find Out!</h2>
+			<form class="trivia-form" action="/questions" method="get">
+				<label class="category-label" for="trivia_category">Pick Your Expertise Area: </label>
+				<select class="category_select" name="category">
+					<option value="9">General Knowledge</option>
+					<option value="17">Science &amp; Nature</option>
+					<option value="18">Science: Computers</option>
+					<option value="10">Entertainment: Books</option>
+					<option value="11">Entertainment: Film</option>
+					<option value="12">Entertainment: Music</option>
+					<option value="14">Entertainment: Television</option>
+					<option value="15">Entertainment: Video Games</option>
+					<option value="29">Entertainment: Comics</option>
+					<option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+					<option value="32">Entertainment: Cartoon &amp; Animations</option>
+					<option value="21">Sports</option>
+					<option value="22">Geography</option>
+					<option value="23">History</option>
+					<option value="25">Art</option>
+					<option value="26">Celebrities</option>
+					<option value="27">Animals</option>
+					<option value="28">Vehicles</option>
+				</select>
+				<input class="btn btn-primary trivia-submit" type="submit" value="Start Quiz">
+			</form>
+      <% if (locals.error) { %>
+        <div id="tag-error" class="tag-error">
+          <%= error %>
+        </div>
+      <% } %>
+		</section>
+	</main>
+	<p>Refresh The Page To Update The Colors</p>
+
+	<%- include("./partials/footer.ejs") %>

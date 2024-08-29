@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs') %>
+
+	<header>
+		<h1>Result</h1>
+	</header>
+		<main>
+			<section>
+				<form>
+					<% data.forEach((question, index) => { %>
+						<fieldset>
+							<legend>Question <%= index + 1 %> / <%= data.length %></legend>
+							<h2 id="question_<%= index %>"><%= question.question %></h2>
+							<% question.shuffledAnswers.forEach((answer, idx) => { %>
+								<label class="answer_label result_answer_label" for="answer_<%= index %>_<%= idx %>"
+									<% if (question.correct_answer === answer) { %> data-answer="correct" <% } %>
+									<% if (userAnswers[`answer_${index}`] === answer) { %> data-answer="user" <% } %>
+									>
+									<input
+									type="radio"
+									id="answer_<%= index %>_<%= idx %>"
+									name="answer_<%= index %>"
+									value="<%= answer %>"
+									<% if (userAnswers[`answer_${index}`] === answer) { %> checked <% } %>
+									disabled
+									data-correct="<%= question.correct_answer %>"
+									>
+									<%= answer %>
+								</label>
+							<% }) %>
+							<div id="warning_<%= index %>" class="warning"></div>
+							<div class="controls">
+								<% if (index > 0) { %>
+									<button type="button" class="btn btn-secondary back-btn">Back</button>
+								<% } %>
+								<a href="/" class="btn btn-secondary try-again">Try Again</a>
+								<% if (index < data.length - 1) { %>
+								<button type="button" class="btn btn-primary next-btn">Next</button>
+								<% } %>
+							</div>
+						</fieldset>
+					<% }) %>
+				</form>
+			</section>
+		</main>
+
+		<%- include('./partials/footer.ejs') %>

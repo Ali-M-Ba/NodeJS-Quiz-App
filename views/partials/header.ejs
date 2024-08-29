@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NodeJS API Quiz App</title>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/firework.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="scripts/script.js"></script>
+	<style>
+		:root {
+			--color-primary: <% if (colors) { %> rgb(<%= colors[0][0] %>, <%= colors[0][1] %>, <%= colors[0][2] %>) <% } else { %> #ffffff <% } %>;
+			--color-secondary: <% if (colors) { %> rgb(<%= colors[1][0] %>, <%= colors[1][1] %>, <%= colors[1][2] %>) <% } else { %> #000000 <% } %>;
+			--color-tertiary: <% if (colors) { %> rgb(<%= colors[2][0] %>, <%= colors[2][1] %>, <%= colors[2][2] %>) <% } else { %> #c4c4c4 <% } %>;
+			--color-quaternary: <% if (colors) { %> rgb(<%= colors[3][0] %>, <%= colors[3][1] %>, <%= colors[3][2] %>) <% } else { %> #2d2d2d <% } %>;
+		}
+	</style>	
+</head>
+<body>

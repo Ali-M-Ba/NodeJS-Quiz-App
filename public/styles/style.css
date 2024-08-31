@@ -75,9 +75,14 @@ h2 {
 }
 
 p {
+  font-size: var(--fs-sm);
   margin: 0px;
   margin-bottom: var(--sp-md);
   text-align: center;
+}
+
+.score_msg {
+  font-size: var(--fs-md);
 }
 
 legend {
@@ -246,6 +251,6 @@ input[type="radio"]:checked::before {
 }
 
 .otdb-logo {
-  height: 25px;
+  height: 20px;
   vertical-align: middle; /* Aligns the image with the text */
 }
